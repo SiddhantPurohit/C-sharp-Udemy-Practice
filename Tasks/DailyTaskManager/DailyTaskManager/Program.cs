@@ -13,7 +13,7 @@ namespace DailyTaskManager
 
         public Task(string nameOFTask, int hourSpent, string description)
         {
-            this.Description = description;
+            this.NameOfTask = nameOFTask;
             this.HoursSpent = hourSpent;
             this.Description = description;
             TimeOfReport = DateTime.Now;
@@ -33,13 +33,13 @@ namespace DailyTaskManager
         }
         public void GetTaskResult()
         {
-            var report = new System.Text.StringBuilder(); //This is used to create a mutable string.
-            report.AppendLine("Task\t\tTimespent\t\tNote");
             foreach (var t in TaskRecord)
             {
-                report.AppendLine($"{t.NameOfTask}\t{t.HoursSpent}\t{t.Description}");
+                Console.WriteLine("Task Completed:" + t.NameOfTask);
+                Console.WriteLine("Hours of task:"+ t.HoursSpent);
+                Console.WriteLine("Description of task:"+  t.Description);
+                Console.WriteLine("");
             }
-            Console.WriteLine(report);
         }       
     }
     class Program
@@ -52,10 +52,10 @@ namespace DailyTaskManager
 
             while(conti)
             {
-                Console.WriteLine("Hello Are You Admin or User" +
-                "Press 1 to select User" +
-                "Press 2 to select Admin" +
-                "Press 3 to exit application");
+                Console.WriteLine("Hello Are You Admin or User " +
+                "Press 1 to select User " +
+                "Press 2 to select Admin " +
+                "Press 3 to exit application ");
 
                 var selection = Convert.ToInt32(Console.ReadLine());
 
