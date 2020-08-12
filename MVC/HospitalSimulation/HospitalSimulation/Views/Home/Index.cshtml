@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h1> This is the Main Page for the hospital for display</h1>
+
+@Html.ActionLink("About", "About" , "Home") // This should be displayed at the top to navigate between the info of college 
+@Html.ActionLink("Contact" , "Contact" , "Home") //This is navigation bar
+
+<p> All the info pic and graphics goes here </p>
+
+
+@Html.ActionLink("Book an appoinment", "BookAppoinment" , "User") //This Should be displayed at the bottom after the info
+@Html.ActionLink("Are you Doctor?" , "Login", "Login")
+@Html.ActionLink("Reseption Desk", "RLogin", "Login")

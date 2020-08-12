@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Dynamic Burgur Builder</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet1.css">
+</head>
+<body>
+    <fieldset>
+        <legend>
+            Your customised Burgur Recipe
+        </legend>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Salad :
+                        <input type="number" id="Saladlayers" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Cheese :
+                        <input type="number" id="Cheeselayers" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Bacon :
+                        <input type="number" id="Baconlayers" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Meat :
+                        <input type="number" id="Meatlayers" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="button" value="Build" name="Build" id="btnBuildBurgur" onclick="BuildBurgur()" class="btn btn-primary" />
+
+    </fieldset>
+    <fieldset>
+        <legend>
+            Burgur Display ---->
+        </legend>
+        <div class="box" id="printburgur">
+
+        </div>
+    </fieldset>
+    <div id="Refresh">
+        
+    </div>
+    <footer id="footer">
+
+    </footer>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function BuildBurgur() {
+
+        var Saladlayers = $("#Saladlayers").val();
+        var Cheeselayers = $("#Cheeselayers").val();
+        var Baconlayers = $("#Baconlayers").val();
+        var Meatlayers = $("#Meatlayers").val();
+
+        var BurgurBox = $("#printburgur"); //A box to print dynamic Burgur
+        var printlayout = ' <div class="bread-top"> <div class="seeds"> </div> <div class="seeds2"> </div></div>';
+
+        BurgurBox.append(printlayout);
+
+        for (var i = 0; i < Saladlayers; i++) {
+            var printSaladlayer = '<div class="salad"></div>';
+            BurgurBox.append(printSaladlayer);
+        }
+
+        for (var i = 0; i < Cheeselayers; i++) {
+            var printCheeselayer = '<div class="cheese"></div>';
+            BurgurBox.append(printCheeselayer);
+        }
+
+        for (var i = 0; i < Baconlayers; i++) {
+            var printBaconlayer = '<div class="bacon"></div>';
+            BurgurBox.append(printBaconlayer);
+        }
+
+        for (var i = 0; i < Meatlayers; i++) {
+            var printMeatlayer = '<div class="meat"></div>';
+            BurgurBox.append(printMeatlayer);
+        }
+
+        var printLowerLayout = '<div class="bread-bottom"></div>';
+        BurgurBox.append(printLowerLayout);
+
+        var footerbox = $("#footer");
+        var footer = '<p>&copy; @DateTime.Now.Year - Siddhants Burgur Builder</p>';
+        footerbox.append(footer);
+
+        var Buttonbox = $("#Refresh")
+        var ResetButton = '<input type="button" value="Another?" name="Another" onclick="Reload()" class="btn btn-success" />'
+        Buttonbox.append(ResetButton);
+
+        document.getElementById("btnBuildBurgur").disabled = true;
+    }
+
+
+    function Reload() {
+        window.location.reload();
+    }
+</script>

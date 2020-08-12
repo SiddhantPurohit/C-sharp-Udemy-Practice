@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="background-color : coral; text-align : center ; color : white">Welcome To Manager Pannel</h2>
+
+<div style="text-align: center; border : solid red ; padding : 10px">
+    @Html.ActionLink("Add Task", "UploadTask") <br />
+    @Html.ActionLink("view Employee Task", "ViewEmployeTask") <br />
+    @Html.ActionLink("Back to Main Page", "Index", "Home")
+</div>

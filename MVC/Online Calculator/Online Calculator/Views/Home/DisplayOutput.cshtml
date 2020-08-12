@@ -1,0 +1,25 @@
+﻿
+
+@{
+    ViewBag.Title = "DisplayOutput";
+}
+
+<h2>DisplayOutput</h2>
+
+<div>
+    <h4>output</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Output")
+        </dt>
+
+        <dd>
+            @ViewBag.output
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

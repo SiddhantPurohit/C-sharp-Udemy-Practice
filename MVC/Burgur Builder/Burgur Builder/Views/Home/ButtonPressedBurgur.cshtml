@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Dynamic Burgur Builder Using Buttons</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet1.css">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <fieldset>
+        <legend>
+            Customised Buttons
+        </legend>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Salad:
+                        <input type="button" value="+" name="+" class="btn btn-success" onclick="AddSalad()" />
+                        <button class="btn btn-danger" onclick="DeleteSalad">-</button>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Cheese:
+                        <button class="btn btn-success">+</button>
+                        <button class="btn btn-danger">-</button>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Bacon:
+                        <button class="btn btn-success">+</button>
+                        <button class="btn btn-danger">-</button>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        Meat:
+                        <button class="btn btn-success">+</button>
+                        <button class="btn btn-danger">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            Burgur:
+        </legend>
+        <div class="box" id="Burgurbox">
+            <div class="bread-top">
+                <div class="seeds"> </div>
+                <div class="seeds2"> </div>
+            </div>
+            <div class="bread-bottom"></div>
+        </div>
+    </fieldset>
+    <div id="Saladlayers">
+
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    function AddSalad() {
+        var CustomisedSaladBox = $("#Saladlayers");
+        var saladLayer = '<h1>Salad</h1> <br />';
+        CustomisedSaladBox.append(saladLayer);
+    }
+</script>

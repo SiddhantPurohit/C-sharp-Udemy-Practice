@@ -1,0 +1,92 @@
+﻿@model ECartSimulation.ViewModels.ItemViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSave").click(function () {
+            SaveItem();
+        });
+    });
+
+    function ResetItem() {
+        $("#CategoryID").val("1");
+        $("#ItemCode").val("");
+        $("#ItemName").val("");
+        $("#Description").val("");
+        $("#ItemPrice").val("");
+        $("#ImagePath").val("");
+    }
+
+    function SaveItem() {
+        var formData = new FormData ();
+        formData.append("CategoryID", $("#CategoryID").val());
+        formData.append("ItemCode", $("#ItemCode").val());
+        formData.append("ItemName", $("#ItemName").val());
+        formData.append("Description", $("#Description").val());
+        formData.append("ItemPrice", $("#ItemPrice").val());
+        formData.append("ImagePath", $("#ImagePath").get(0).files[0]);
+
+        $.ajax({
+            async: true,
+            dataType: 'JSON',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            url: '/Item/Index',
+            data: formData,
+            success: function (data) {
+                if (data.success) {
+                    alert(data.Message);
+                    ResetItem();
+                }
+                alert(data);
+                ResetItem();
+            },
+            error: function () {
+                alert("There was some unexpected error");
+            }
+        });
+    }
+</script>
+
+<div class="container">
+    <div class="Col-md-4">
+         Category: 
+         @Html.DropDownListFor(Model => Model.CategoryID, new SelectList(Model.CategorySelectListItems, "Value", "Text"),
+                                  new { @class = "form-control" }) 
+    </div> 
+
+    <div class="Col-md-4">
+         Item Code: 
+         @Html.TextBoxFor(Model => Model.ItemCode, new { @class = "form-control", autocomplete ="off" }) 
+    </div> 
+
+    <div class="Col-md-4">
+         Item Name: 
+         @Html.TextBoxFor(Model => Model.ItemName, new { @class = "form-control" , autocomplete ="off"}) 
+    </div> 
+
+    <div class="Col-md-4">
+         Description: 
+         @Html.TextBoxFor(Model => Model.Description, new { @class = "form-control", autocomplete ="off" }) 
+    </div> 
+
+    <div class="Col-md-4">
+         Item Price: 
+         @Html.TextBoxFor(Model => Model.ItemPrice, new { @class = "form-control" , autocomplete ="off"}) 
+    </div> 
+
+    <div class="Col-md-4">
+        Image Path:
+        @Html.TextBoxFor(Model => Model.ImagePath, new { type = "file", @class = "form-control", autocomplete = "off" })
+    </div> 
+
+    <div>
+        <input type="button" value="Save" name="save"  id="btnSave" class="btn btn-primary" />
+        &nbsp;
+        <input type="button" value="Reset" name="reset" class="btn btn-danger" />
+    </div>
+</div>

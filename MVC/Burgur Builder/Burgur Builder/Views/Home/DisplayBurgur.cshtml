@@ -1,0 +1,47 @@
+﻿@model Burgur_Builder.Controllers.HomeController
+
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet1.css">
+    </head>
+    <body>
+        <table class="center">
+            <tr>
+                <td>
+                    <div class="box">
+                        <div class="bread-top">
+                            <div class="seeds"></div>
+                            <div class="seeds2"></div>
+                        </div>
+                        @{
+                            for (int i = 0; i < Convert.ToInt32(TempData["Salad"]); i++)
+                            {
+                                <div class="salad"></div>
+                            }
+
+                            for (int i = 0; i < Convert.ToInt32(TempData["Bacon"]); i++)
+                            {
+                                <div class="bacon"></div>
+                            }
+
+                            for (int i = 0; i < Convert.ToInt32(TempData["Cheese"]); i++)
+                            {
+                                <div class="cheese"></div>
+                            }
+
+                            for (int i = 0; i < Convert.ToInt32(TempData["Meat"]); i++)
+                            {
+                                <div class="meat"></div>
+                            }
+                        }
+                        <div class="bread-bottom"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Siddhant's Burgur Builder</p>
+        </footer>
+    </body>
+    </html>
+

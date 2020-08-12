@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ControllerModels.TaskModel>
+
+@{
+    ViewBag.Title = "Task_Viewer";
+}
+
+<h2 style="background-color : coral; text-align : center ; color : white">Task Viewer</h2>
+
+<table class="table" border="1" style=" text-align :center ; background-color : darkgrey ; border : solid black ; width : 100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Task1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Task1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+        </tr>
+     }
+
+</table>
+
+@Html.ActionLink("Tasks performed by Managers","ViewManagerTask","Manager") <br />
+
+@Html.ActionLink("Return to home page", "Index")

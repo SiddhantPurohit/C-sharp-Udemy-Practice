@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+    <link rel="stylesheet" type="text/css" href="\Content\Index.css">
+</head>
+<body>
+    <div class="mainheader">
+        <div class="container">
+            <h1>Task Manager</h1>
+        </div>
+    </div>
+
+    <nav class="navigationbar">
+        <div class="container">
+            <ul>
+                <li>
+                    @Html.ActionLink("Task Uploade", "Task_Uploader", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("Task Viewer Admin", "Task_Viewer", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("Manager Pannel","ManagerLogin", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("About and Contact", "AboutAndContact", "Home")
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="showcase">
+        <h1>
+            We admire your work, help us keep track of it.
+        </h1>
+    </section>
+
+    <section class="paragraphs1">
+        <h2>It is our attitude at the beginning of a difficult task which, more than anything else, will affect its successful outcome.</h2> <br />
+        <h1><strong>-Mahatma Gandhi</strong></h1>
+    </section>
+    <section class="paragraphs2">
+        <h2>The search for knowledge is a long and difficult task.</h2><br />
+        <h1><strong>-Fabiola Gianotti</strong></h1>
+    </section>   <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+
+    <h5 style="padding: 10px"> @Html.ActionLink("Are you an Admin?", "Create") </h5>
+
+    <footer id="mainfooter">
+        <p>Copyright &copy; @DateTime.Now.Year Siddhant Purohit</p>
+    </footer>
+
+</body>
+</html>
+
+
